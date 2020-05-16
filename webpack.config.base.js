@@ -4,7 +4,7 @@ module.exports = {
   entry: "./src/index.js",
   output: {
     path: path.join(__dirname, "dist"),
-    filename: "app.bundle.js"
+    filename: "app.bundle.js",
   },
   module: {
     rules: [
@@ -12,15 +12,17 @@ module.exports = {
         test: /\.js$/,
         loader: "babel-loader",
         exclude: /node_modules/,
-        options: {
-          presets: ["@babel/preset-env", "@babel/preset-react"]
-        }
-      }
-    ]
+      },
+      {
+        test: /\.css$/,
+        use: ["style-loader", "css-loader"],
+        exclude: /node_modules/,
+      },
+    ],
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "./src/index.html"
-    })
-  ]
+      template: "./src/index.html",
+    }),
+  ],
 };
