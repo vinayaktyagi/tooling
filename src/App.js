@@ -9,13 +9,14 @@ class App extends React.Component {
   };
 
   render() {
+    // throw new Error("Boom!");
     return (
       <div>
         <h1>Hello World Hot!~~~~~~</h1>
         <img src="./logo.png" alt="Logo of app" />
-        <p className={this.state.count > 10 ? "warning" : null}>
+        <h2 className={this.state.count > 10 ? "warning" : null}>
           Count : {this.state.count}
-        </p>
+        </h2>
         <button
           onClick={() => this.setState((state) => ({ count: state.count + 1 }))}
         >
